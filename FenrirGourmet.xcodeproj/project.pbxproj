@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		15E40FBD241D145000FD153B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FBC241D145000FD153B /* AppDelegate.swift */; };
 		15E40FBF241D145000FD153B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FBE241D145000FD153B /* SceneDelegate.swift */; };
-		15E40FC1241D145000FD153B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FC0241D145000FD153B /* ViewController.swift */; };
+		15E40FC1241D145000FD153B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FC0241D145000FD153B /* MainViewController.swift */; };
 		15E40FC4241D145000FD153B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E40FC2241D145000FD153B /* Main.storyboard */; };
 		15E40FC6241D145300FD153B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E40FC5241D145300FD153B /* Assets.xcassets */; };
 		15E40FC9241D145300FD153B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E40FC7241D145300FD153B /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		15E40FB9241D145000FD153B /* FenrirGourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenrirGourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E40FBC241D145000FD153B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15E40FBE241D145000FD153B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		15E40FC0241D145000FD153B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		15E40FC0241D145000FD153B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		15E40FC3241D145000FD153B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15E40FC5241D145300FD153B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15E40FC8241D145300FD153B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +79,7 @@
 		15E40FB0241D144F00FD153B = {
 			isa = PBXGroup;
 			children = (
+				15E40FED241D1AD500FD153B /* ViewController */,
 				15E40FBB241D145000FD153B /* FenrirGourmet */,
 				15E40FD2241D145400FD153B /* FenrirGourmetTests */,
 				15E40FDD241D145400FD153B /* FenrirGourmetUITests */,
@@ -101,7 +102,6 @@
 			children = (
 				15E40FBC241D145000FD153B /* AppDelegate.swift */,
 				15E40FBE241D145000FD153B /* SceneDelegate.swift */,
-				15E40FC0241D145000FD153B /* ViewController.swift */,
 				15E40FC2241D145000FD153B /* Main.storyboard */,
 				15E40FC5241D145300FD153B /* Assets.xcassets */,
 				15E40FC7241D145300FD153B /* LaunchScreen.storyboard */,
@@ -126,6 +126,14 @@
 				15E40FE0241D145400FD153B /* Info.plist */,
 			);
 			path = FenrirGourmetUITests;
+			sourceTree = "<group>";
+		};
+		15E40FED241D1AD500FD153B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				15E40FC0241D145000FD153B /* MainViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15E40FC1241D145000FD153B /* ViewController.swift in Sources */,
+				15E40FC1241D145000FD153B /* MainViewController.swift in Sources */,
 				15E40FBD241D145000FD153B /* AppDelegate.swift in Sources */,
 				15E40FBF241D145000FD153B /* SceneDelegate.swift in Sources */,
 			);

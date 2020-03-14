@@ -22,16 +22,25 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     func setupLocationManager() {
         locationManager = CLLocationManager()
         guard let locationManager = locationManager else { return }
+        self.locationManager.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
         
-        let status = CLLocationManager.authorizationStatus()
-        if status == .authorizedWhenInUse {
-            locationManager.delegate = self
-            locationManager.distanceFilter = 10
-            locationManager.startUpdatingLocation()
+
         }
         
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.distanceFilter = 10
+            locationManager.startUpdatingLocation()
+        case .denied:
+            print("許可してください")
+            // 許可しないボタンをタップしたとき
+        default:
+            break
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

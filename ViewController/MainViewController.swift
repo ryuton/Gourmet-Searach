@@ -26,9 +26,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
         locationManager.requestWhenInUseAuthorization()
         
-
-        }
         
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -37,7 +37,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         case .denied:
             print("許可してください")
-            // 許可しないボタンをタップしたとき
+        // 許可しないボタンをタップしたとき
         default:
             break
         }

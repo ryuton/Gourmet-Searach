@@ -13,6 +13,7 @@ import CoreLocation
 class ViewController: UIViewController,CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
+    @IBOutlet weak var mainMapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +44,19 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             break
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first
         let latitude = location?.coordinate.latitude
         let longitude = location?.coordinate.longitude
         
+        if let coordinate = locations.last?.coordinate {
+            // 現在地を拡大して表示する
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            mainMapView.region = region
+            
         print("latitude: \(latitude!)\nlongitude: \(longitude!)")
     }
+}
 }

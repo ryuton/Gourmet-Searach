@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController {
-
+    
     var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
@@ -21,7 +21,10 @@ class ViewController: UIViewController {
     
     func setupLocationManager() {
         locationManager = CLLocationManager()
+        guard let locationManager = locationManager else { return }
+        
+        locationManager.requestWhenInUseAuthorization()
     }
-
+    
 }
 

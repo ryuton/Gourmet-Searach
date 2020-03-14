@@ -15,12 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-p9-Ius">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-p9-Ius">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="c5P-p9-Ius" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="K1b-uE-fgf"/>
+                            <constraint firstItem="c5P-p9-Ius" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OLb-ee-QNt"/>
+                            <constraint firstAttribute="bottom" secondItem="c5P-p9-Ius" secondAttribute="bottom" id="VFC-Fr-9Hs"/>
+                            <constraint firstItem="c5P-p9-Ius" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="l7D-u0-O2b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

@@ -24,7 +24,13 @@ class ViewController: UIViewController {
         guard let locationManager = locationManager else { return }
         
         locationManager.requestWhenInUseAuthorization()
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedWhenInUse {
+            locationManager.distanceFilter = 10
+            locationManager.startUpdatingLocation()
+        }
+        
     }
     
 }
-

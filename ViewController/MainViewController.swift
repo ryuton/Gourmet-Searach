@@ -15,12 +15,15 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     @IBOutlet weak var mainMapView: MKMapView!
     
+    var lati: CLLocationDegrees?
+    var long: CLLocationDegrees?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupLocationManager()
         
-        get()
+        
     }
     
     func setupLocationManager() {
@@ -49,8 +52,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first
-        let latitude = location?.coordinate.latitude
-        let longitude = location?.coordinate.longitude
+        lati = location?.coordinate.latitude
+        long = location?.coordinate.longitude
         
         if let coordinate = locations.last?.coordinate {
             // 現在地を拡大して表示する
@@ -58,22 +61,22 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: coordinate, span: span)
             mainMapView.region = region
             
-        print("latitude: \(latitude!)\nlongitude: \(longitude!)")
+        print("latitude: \(lati!)\nlongitude: \(long!)")
+            get()
     }
 }
     
     // HTTP-GET
     func get() {
-
         // create the url-request
-        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3f123b61493fab2cf44e27a71320d604&latitude=41.813137&longitude=140.752334"
+        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3f123b61493fab2cf44e27a71320d604&latitude=\(self.lati!)&longitude=\(self.long!)c&"
         let component = URLComponents(string: urlString)!
 
         URLSession.shared.dataTask(with: component.url!) { (data, response, error) in
         
-            let gNaviResponse = try! JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
+            let gNaviResponse = try? JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
             )
-            print(gNaviResponse.rest)
+            print(gNaviResponse?.rest ?? "")
         }.resume()
 
     }

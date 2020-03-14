@@ -15,6 +15,7 @@
 		15E40FC9241D145300FD153B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E40FC7241D145300FD153B /* LaunchScreen.storyboard */; };
 		15E40FD4241D145400FD153B /* FenrirGourmetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FD3241D145400FD153B /* FenrirGourmetTests.swift */; };
 		15E40FDF241D145400FD153B /* FenrirGourmetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FDE241D145400FD153B /* FenrirGourmetUITests.swift */; };
+		15E40FF1241D1D1800FD153B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E40FEF241D1CA600FD153B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		15E40FDA241D145400FD153B /* FenrirGourmetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenrirGourmetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E40FDE241D145400FD153B /* FenrirGourmetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FenrirGourmetUITests.swift; sourceTree = "<group>"; };
 		15E40FE0241D145400FD153B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15E40FEF241D1CA600FD153B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E40FF1241D1D1800FD153B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,7 @@
 				15E40FD2241D145400FD153B /* FenrirGourmetTests */,
 				15E40FDD241D145400FD153B /* FenrirGourmetUITests */,
 				15E40FBA241D145000FD153B /* Products */,
+				15E40FEE241D1CA600FD153B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +138,14 @@
 				15E40FC0241D145000FD153B /* MainViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		15E40FEE241D1CA600FD153B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15E40FEF241D1CA600FD153B /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

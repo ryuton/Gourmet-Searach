@@ -19,6 +19,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupLocationManager()
+        
+        get()
     }
     
     func setupLocationManager() {
@@ -59,4 +61,21 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         print("latitude: \(latitude!)\nlongitude: \(longitude!)")
     }
 }
+    
+    // HTTP-GET
+    func get() {
+
+        // create the url-request
+        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3f123b61493fab2cf44e27a71320d604&latitude=41.813137&longitude=140.752334"
+        let component = URLComponents(string: urlString)!
+
+        URLSession.shared.dataTask(with: component.url!) { (data, response, error) in
+        
+            let gNaviResponse = try! JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
+            )
+            print(gNaviResponse.rest)
+        }.resume()
+
+    }
+    
 }

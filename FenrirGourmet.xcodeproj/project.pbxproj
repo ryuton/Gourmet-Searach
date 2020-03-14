@@ -19,6 +19,7 @@
 		15E40FF3241D2A8E00FD153B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E40FF2241D2A8E00FD153B /* MapKit.framework */; };
 		15E40FF6241D3FAD00FD153B /* GNaviResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FF5241D3FAD00FD153B /* GNaviResponse.swift */; };
 		15E40FF8241D43E200FD153B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FF7241D43E200FD153B /* Restaurant.swift */; };
+		15E41003241D7F2100FD153B /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E41002241D7F2100FD153B /* Picture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		15E40FF2241D2A8E00FD153B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		15E40FF5241D3FAD00FD153B /* GNaviResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNaviResponse.swift; sourceTree = "<group>"; };
 		15E40FF7241D43E200FD153B /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		15E41002241D7F2100FD153B /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				15E40FF5241D3FAD00FD153B /* GNaviResponse.swift */,
 				15E40FF7241D43E200FD153B /* Restaurant.swift */,
+				15E41002241D7F2100FD153B /* Picture.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E41003241D7F2100FD153B /* Picture.swift in Sources */,
 				15E40FF8241D43E200FD153B /* Restaurant.swift in Sources */,
 				15E40FC1241D145000FD153B /* MainViewController.swift in Sources */,
 				15E40FBD241D145000FD153B /* AppDelegate.swift in Sources */,

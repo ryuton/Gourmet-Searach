@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Darwin
 
 class ViewController: UIViewController,CLLocationManagerDelegate {
     
@@ -22,8 +23,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupLocationManager()
-        
-        
     }
     
     func setupLocationManager() {
@@ -49,7 +48,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             break
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first
         lati = location?.coordinate.latitude
@@ -61,24 +60,68 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: coordinate, span: span)
             mainMapView.region = region
             
-        print("latitude: \(lati!)\nlongitude: \(long!)")
-            get()
+            print("latitude: \(lati!)\nlongitude: \(long!)")
+            get(rangenumber: 2)
+        }
     }
-}
+    
+    @IBAction func range300Btn(_ sender: Any) {
+        get(rangenumber: 1)
+    }
+    
+    @IBAction func range500Btn(_ sender: Any) {
+        get(rangenumber: 2)
+    }
+    
+    @IBAction func range1000Btn(_ sender: Any) {
+        get(rangenumber: 3)
+    }
+    
+    @IBAction func range2000Btn(_ sender: Any) {
+        get(rangenumber: 4)
+    }
+    
+    @IBAction func range3000Btn(_ sender: Any) {
+        get(rangenumber: 5)
+    }
     
     // HTTP-GET
-    func get() {
+    func get(rangenumber: Int) {
         // create the url-request
-        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3f123b61493fab2cf44e27a71320d604&latitude=\(self.lati!)&longitude=\(self.long!)c&"
-        let component = URLComponents(string: urlString)!
-
-        URLSession.shared.dataTask(with: component.url!) { (data, response, error) in
         
+        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=1b68697c1b2147d6b721390b54ea9530&latitude=\(self.lati!)&longitude=\(self.long!)&range=\(rangenumber)&hit_per_page=100"
+        let component = URLComponents(string: urlString)!
+        
+        URLSession.shared.dataTask(with: component.url!) { (data, response, error) in
+            
             let gNaviResponse = try? JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
             )
+            for i in 0...gNaviResponse!.rest.count-1 {
+                // ピンを生成.
+                let myPin: MKPointAnnotation = MKPointAnnotation()
+                
+                let myLati: Double = atof(gNaviResponse!.rest[i].latitude)
+                
+                let myLong: Double = atof(gNaviResponse!.rest[i].longitude)
+                
+                let coordinate = CLLocationCoordinate2DMake(myLati, myLong)
+                
+                
+                // 座標を設定.
+                myPin.coordinate = coordinate
+                
+                // タイトルを設定.
+                myPin.title = gNaviResponse!.rest[i].name
+                
+                // サブタイトルを設定.
+                myPin.subtitle = gNaviResponse!.rest[i].nameKana
+                
+                // MapViewにピンを追加.
+                self.mainMapView.addAnnotation(myPin)
+            }
             print(gNaviResponse?.rest ?? "")
         }.resume()
-
+        
     }
     
 }

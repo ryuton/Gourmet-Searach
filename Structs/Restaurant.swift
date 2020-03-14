@@ -15,6 +15,7 @@ struct Restaurant: Codable {
     let nameKana: String
     let latitude: String
     let longitude: String
+    let image_url: Picture
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -22,5 +23,6 @@ struct Restaurant: Codable {
         case nameKana = "name_kana"
         case latitude
         case longitude
+        case image_url
     }
 }

@@ -19,10 +19,12 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     var lati: CLLocationDegrees?
     var long: CLLocationDegrees?
      let myPin: MKPointAnnotation = MKPointAnnotation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupLocationManager()
+        mainMapView.delegate = self as? MKMapViewDelegate
     }
     
     func setupLocationManager() {
@@ -61,11 +63,11 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             mainMapView.region = region
             
             print("latitude: \(lati!)\nlongitude: \(long!)")
-            get(rangenumber: 2)
         }
     }
     
     @IBAction func range300Btn(_ sender: Any) {
+ 
         get(rangenumber: 1)
     }
     
@@ -89,7 +91,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     func get(rangenumber: Int) {
         // create the url-request
         
-        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=1b68697c1b2147d6b721390b54ea9530&latitude=\(self.lati!)&longitude=\(self.long!)&range=\(rangenumber)&hit_per_page=100"
+        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=1b68697c1b2147d6b721390b54ea9530&latitude=\(self.lati!)&longitude=\(self.long!)&range=\(rangenumber)&hit_per_page=100&"
         let component = URLComponents(string: urlString)!
         
         URLSession.shared.dataTask(with: component.url!) { (data, response, error) in
@@ -114,28 +116,25 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 myPin.title = gNaviResponse!.rest[i].name
                 
                 // サブタイトルを設定.
-                myPin.subtitle = gNaviResponse!.rest[i].access.station
+                myPin.subtitle = gNaviResponse!.rest[i].nameKana
                 
                 // MapViewにピンを追加.
                 self.mainMapView.addAnnotation(myPin)
-
+                
             }
         }.resume()
         
     }
-    // mapViewのデリゲート
-       func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-           // MKPinAnnotationViewを宣言
-           let annoView = MKPinAnnotationView()
-           // MKPinAnnotationViewのannotationにMKAnnotationのAnnotationを追加
-           annoView.annotation = annotation
-           // ピンの画像を変更
-           annoView.image = UIImage(named: "swift_logo")
-           // 吹き出しを使用
-           annoView.canShowCallout = true
-           // 吹き出しにinfoボタンを表示
-           annoView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
 
-           return annoView
-       }
+    func mainMapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+
+    }
+    func mainMapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
+        let markerAnnotationView = MKMarkerAnnotationView(annotation: myPin, reuseIdentifier: "myPin")
+        markerAnnotationView.isDraggable = true
+        markerAnnotationView.canShowCallout = true
+        markerAnnotationView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
+        return markerAnnotationView
+    }
+
 }

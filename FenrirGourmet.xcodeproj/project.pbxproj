@@ -20,6 +20,7 @@
 		15E40FF6241D3FAD00FD153B /* GNaviResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FF5241D3FAD00FD153B /* GNaviResponse.swift */; };
 		15E40FF8241D43E200FD153B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FF7241D43E200FD153B /* Restaurant.swift */; };
 		15E41003241D7F2100FD153B /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E41002241D7F2100FD153B /* Picture.swift */; };
+		15E410232429F00D00FD153B /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E410222429F00D00FD153B /* Access.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		15E40FF5241D3FAD00FD153B /* GNaviResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNaviResponse.swift; sourceTree = "<group>"; };
 		15E40FF7241D43E200FD153B /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		15E41002241D7F2100FD153B /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		15E410222429F00D00FD153B /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				15E40FF5241D3FAD00FD153B /* GNaviResponse.swift */,
 				15E40FF7241D43E200FD153B /* Restaurant.swift */,
 				15E41002241D7F2100FD153B /* Picture.swift */,
+				15E410222429F00D00FD153B /* Access.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E410232429F00D00FD153B /* Access.swift in Sources */,
 				15E41003241D7F2100FD153B /* Picture.swift in Sources */,
 				15E40FF8241D43E200FD153B /* Restaurant.swift in Sources */,
 				15E40FC1241D145000FD153B /* MainViewController.swift in Sources */,

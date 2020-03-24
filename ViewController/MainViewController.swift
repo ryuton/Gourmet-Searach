@@ -18,7 +18,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
     var lati: CLLocationDegrees?
     var long: CLLocationDegrees?
-    
+     let myPin: MKPointAnnotation = MKPointAnnotation()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -115,13 +115,26 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 
                 // サブタイトルを設定.
                 myPin.subtitle = gNaviResponse!.rest[i].nameKana
-                
                 // MapViewにピンを追加.
                 self.mainMapView.addAnnotation(myPin)
+
             }
-            print(gNaviResponse?.rest ?? "")
         }.resume()
         
     }
-    
+    // mapViewのデリゲート
+       func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+           // MKPinAnnotationViewを宣言
+           let annoView = MKPinAnnotationView()
+           // MKPinAnnotationViewのannotationにMKAnnotationのAnnotationを追加
+           annoView.annotation = annotation
+           // ピンの画像を変更
+           annoView.image = UIImage(named: "swift_logo")
+           // 吹き出しを使用
+           annoView.canShowCallout = true
+           // 吹き出しにinfoボタンを表示
+           annoView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
+
+           return annoView
+       }
 }

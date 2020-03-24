@@ -114,7 +114,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 myPin.title = gNaviResponse!.rest[i].name
                 
                 // サブタイトルを設定.
-                myPin.subtitle = gNaviResponse!.rest[i].nameKana
+                myPin.subtitle = gNaviResponse!.rest[i].access.station
+                
                 // MapViewにピンを追加.
                 self.mainMapView.addAnnotation(myPin)
 

@@ -10,11 +10,11 @@ import Foundation
 
 struct Access: Codable  {
     
-    let line: String
-    let station: String
-    let station_exit: String
-    let walk: Int
-    let note: String
+    let line: String?
+    let station: String?
+    let station_exit: String?
+    let walk: String?
+    let note: String?
 
     
     enum CodingKeys: String, CodingKey {

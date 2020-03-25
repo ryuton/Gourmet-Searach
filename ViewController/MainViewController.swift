@@ -11,20 +11,22 @@ import MapKit
 import CoreLocation
 import Darwin
 
-class ViewController: UIViewController,CLLocationManagerDelegate {
+class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
     
     var locationManager: CLLocationManager!
+
     @IBOutlet weak var mainMapView: MKMapView!
     
     var lati: CLLocationDegrees?
     var long: CLLocationDegrees?
-     let myPin: MKPointAnnotation = MKPointAnnotation()
+    let myPin: MKPointAnnotation = MKPointAnnotation()
+    //var rest = [Restaurant]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupLocationManager()
-        mainMapView.delegate = self as? MKMapViewDelegate
+        mainMapView.delegate = self
     }
     
     func setupLocationManager() {
@@ -96,11 +98,14 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
         URLSession.shared.dataTask(with: component.url!) { (data, response, error) in
             
-            let gNaviResponse = try? JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
+           let gNaviResponse = try? JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
             )
+            
+            //self.rest = gNaviResponse!.rest
+            
             for i in 0...gNaviResponse!.rest.count-1 {
                 // ピンを生成.
-                let myPin: MKPointAnnotation = MKPointAnnotation()
+                let myPin = CustomAnnotation()
                 
                 let myLati: Double = atof(gNaviResponse!.rest[i].latitude)
                 
@@ -116,7 +121,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 myPin.title = gNaviResponse!.rest[i].name
                 
                 // サブタイトルを設定.
-                myPin.subtitle = gNaviResponse!.rest[i].nameKana
+                myPin.subtitle = gNaviResponse!.rest[i].access.line
+                
+                myPin.imageURL = gNaviResponse!.rest[i].image_url.shop_image1
                 
                 // MapViewにピンを追加.
                 self.mainMapView.addAnnotation(myPin)
@@ -126,15 +133,52 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         
     }
 
-    func mainMapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-
-    }
-    func mainMapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
+    
+   /* func mainMapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
         let markerAnnotationView = MKMarkerAnnotationView(annotation: myPin, reuseIdentifier: "myPin")
         markerAnnotationView.isDraggable = true
         markerAnnotationView.canShowCallout = true
         markerAnnotationView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
         return markerAnnotationView
     }
+ */
+       //addAnnotationした際に呼ばれるデリゲートメソッド
+       func mapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
+           let identifier = "myPin"
+           var annotationView: MKAnnotationView!
+    
+           if annotationView == nil {
+               annotationView = MKAnnotationView(annotation: myPin, reuseIdentifier: identifier)
+           }
+    
+        
+           // pinに表示する画像を指定
+        if NSStringFromClass(type(of: myPin)).components(separatedBy: ".").last! == "CustomAnnotation" {
+            annotationView.image = getImageByUrl(url:(myPin as! CustomAnnotation).imageURL)
+        }
+        
+           
+           annotationView.annotation = myPin
+           annotationView.canShowCallout = true
 
+
+        let rect:CGRect = CGRect(x:0, y:0, width:50, height:50)
+
+        annotationView.frame = rect;
+        
+           return annotationView
+       }
+    
+    func getImageByUrl(url: String?) -> UIImage{
+        if let url = URL(string: url!) {
+            do {
+                let data = try Data(contentsOf: url)
+                return UIImage(data: data)!
+            } catch let err {
+                print("Error : \(err.localizedDescription)")
+            }
+        }
+        
+        return UIImage()
+    }
 }

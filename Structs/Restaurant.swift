@@ -16,7 +16,7 @@ struct Restaurant: Codable {
     let latitude: String
     let longitude: String
     let image_url: Picture
-    //let access: Access
+    let access: Access
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,6 +25,6 @@ struct Restaurant: Codable {
         case latitude
         case longitude
         case image_url
-        //case access
+        case access
     }
 }

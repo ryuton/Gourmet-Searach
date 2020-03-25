@@ -9,14 +9,15 @@
 import UIKit
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     var rest: Restaurant?
+    var shopView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -24,6 +25,23 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return  50
+        case 1:
+            return  250
+        case 2:
+            return  35
+        case 3:
+            return  35
+        case 4:
+            return   40
+        default:
+            break
+        }
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,7 +51,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 0:
             cell.textLabel?.text = self.rest?.name
         case 1:
-            cell.textLabel?.text = self.rest?.address
+            cell.imageView?.image = getImageByUrl(url: self.rest?.image_url.shop_image1)
+            //cell.textLabel?.text = self.rest?.address
         case 2:
             cell.textLabel?.text = self.rest?.tel
         case 3:
@@ -47,15 +66,26 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getImageByUrl(url: String?) -> UIImage{
+        if let url = URL(string: url!) {
+            do {
+                let data = try Data(contentsOf: url)
+                return UIImage(data: data)!
+            } catch let err {
+                print("Error : \(err.localizedDescription)")
+            }
+        }
+        
+        return UIImage(named: "pin")!
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

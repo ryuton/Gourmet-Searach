@@ -32,6 +32,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         setupDetailViewController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     func setupLocationManager() {
         locationManager = CLLocationManager()
         guard let locationManager = locationManager else { return }
@@ -66,9 +70,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
             // 現在地を拡大して表示する
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let region = MKCoordinateRegion(center: coordinate, span: span)
-            //mainMapView.region = region
-            
-            print("latitude: \(lati!)\nlongitude: \(long!)")
+            mainMapView.region = region
         }
     }
     

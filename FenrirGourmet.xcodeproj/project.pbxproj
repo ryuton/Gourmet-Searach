@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1538C78F242BCC77003B7B72 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1538C78E242BCC77003B7B72 /* DetailViewController.swift */; };
 		15E40FBD241D145000FD153B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FBC241D145000FD153B /* AppDelegate.swift */; };
 		15E40FBF241D145000FD153B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FBE241D145000FD153B /* SceneDelegate.swift */; };
 		15E40FC1241D145000FD153B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FC0241D145000FD153B /* MainViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1538C78E242BCC77003B7B72 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		15E40FB9241D145000FD153B /* FenrirGourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenrirGourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E40FBC241D145000FD153B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15E40FBE241D145000FD153B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				15E40FC0241D145000FD153B /* MainViewController.swift */,
+				1538C78E242BCC77003B7B72 /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1538C78F242BCC77003B7B72 /* DetailViewController.swift in Sources */,
 				15E410232429F00D00FD153B /* Access.swift in Sources */,
 				15E41003241D7F2100FD153B /* Picture.swift in Sources */,
 				15E40FF8241D43E200FD153B /* Restaurant.swift in Sources */,

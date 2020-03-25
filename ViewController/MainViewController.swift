@@ -14,6 +14,7 @@ import Darwin
 class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
     
     var locationManager: CLLocationManager!
+    var detailsViewController: DetailViewController!
     
     @IBOutlet weak var mainMapView: MKMapView!
     
@@ -28,6 +29,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         // Do any additional setup after loading the view.
         mainMapView.delegate = self
         setupLocationManager()
+        setupDetailViewController()
     }
     
     func setupLocationManager() {
@@ -36,10 +38,11 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         self.locationManager.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
-        
-        
     }
     
+    func setupDetailViewController() {
+        self.detailsViewController = DetailViewController()
+    }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -134,7 +137,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
                 // サブタイトルを設定.
                 myPin.subtitle = gNaviResponse!.rest[i].access.line
                 
-                myPin.imageURL = gNaviResponse!.rest[i].image_url.shop_image1
+                myPin.rest = gNaviResponse!.rest[i]
                 self.myPinArray.append(myPin)
                 
             }
@@ -158,6 +161,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     //addAnnotationした際に呼ばれるデリゲートメソッド
     func mapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
         
+        //if may location
         if myPin is MKUserLocation { return nil }
         
         let identifier = "myPin"
@@ -170,7 +174,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         
         // pinに表示する画像を指定
         if NSStringFromClass(type(of: myPin)).components(separatedBy: ".").last! == "CustomAnnotation" {
-            annotationView.image = getImageByUrl(url:(myPin as! CustomAnnotation).imageURL)
+            annotationView.image = getImageByUrl(url:(myPin as! CustomAnnotation).rest!.image_url.shop_image1)
         }
         
         
@@ -185,9 +189,27 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         return annotationView
     }
     
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        
+        for view in views {
+            if view.annotation is MKUserLocation { return }
+            view.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
+        }
+    }
+    
     //ピンのタップ時
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        let detailViewController = (storyboard?.instantiateViewController(identifier: "DetailViewController"))! as DetailViewController
+        if NSStringFromClass(type(of: view.annotation!)).components(separatedBy: ".").last! == "CustomAnnotation" {
+            detailViewController.rest = (view.annotation as! CustomAnnotation).rest
+        }
+        
+        present(detailViewController, animated: true, completion: nil)
     }
     
     func getImageByUrl(url: String?) -> UIImage{

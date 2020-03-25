@@ -11,6 +11,6 @@ import MapKit
 
 class CustomAnnotation: MKPointAnnotation {
 
-    var imageURL: String = ""
+    var rest: Restaurant?
 
 }

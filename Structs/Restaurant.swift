@@ -15,6 +15,9 @@ struct Restaurant: Codable {
     let nameKana: String
     let latitude: String
     let longitude: String
+    let address: String
+    let tel: String
+    let opentime: String
     let image_url: Picture
     let access: Access
     
@@ -24,6 +27,9 @@ struct Restaurant: Codable {
         case nameKana = "name_kana"
         case latitude
         case longitude
+        case address
+        case tel
+        case opentime
         case image_url
         case access
     }

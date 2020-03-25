@@ -20,6 +20,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     var lati: CLLocationDegrees?
     var long: CLLocationDegrees?
     let myPin: MKPointAnnotation = MKPointAnnotation()
+    var myPinArray: [MKAnnotation] = []
     //var rest = [Restaurant]()
     
     override func viewDidLoad() {
@@ -69,23 +70,27 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     }
     
     @IBAction func range300Btn(_ sender: Any) {
- 
+     mainMapView.removeAnnotation(myPin)
         get(rangenumber: 1)
     }
     
     @IBAction func range500Btn(_ sender: Any) {
+        mainMapView.removeAnnotation(myPin)
         get(rangenumber: 2)
     }
     
     @IBAction func range1000Btn(_ sender: Any) {
+        mainMapView.removeAnnotation(myPin)
         get(rangenumber: 3)
     }
     
     @IBAction func range2000Btn(_ sender: Any) {
+        mainMapView.removeAnnotation(myPin)
         get(rangenumber: 4)
     }
     
     @IBAction func range3000Btn(_ sender: Any) {
+        mainMapView.removeAnnotation(myPin)
         get(rangenumber: 5)
     }
     
@@ -102,6 +107,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
             )
             
             //self.rest = gNaviResponse!.rest
+            self.mainMapView.removeAnnotation(self.myPin)
             
             for i in 0...gNaviResponse!.rest.count-1 {
                 // ピンを生成.
@@ -124,11 +130,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
                 myPin.subtitle = gNaviResponse!.rest[i].access.line
                 
                 myPin.imageURL = gNaviResponse!.rest[i].image_url.shop_image1
-                
-                // MapViewにピンを追加.
-                self.mainMapView.addAnnotation(myPin)
+                self.myPinArray.append(myPin)
                 
             }
+            self.mainMapView.addAnnotations(self.myPinArray)
         }.resume()
         
     }
@@ -179,6 +184,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
             }
         }
         
-        return UIImage()
+        return UIImage(named: "pin")!
     }
 }

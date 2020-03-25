@@ -14,7 +14,7 @@ import Darwin
 class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
     
     var locationManager: CLLocationManager!
-
+    
     @IBOutlet weak var mainMapView: MKMapView!
     
     var lati: CLLocationDegrees?
@@ -26,8 +26,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupLocationManager()
         mainMapView.delegate = self
+        setupLocationManager()
     }
     
     func setupLocationManager() {
@@ -63,34 +63,39 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
             // 現在地を拡大して表示する
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let region = MKCoordinateRegion(center: coordinate, span: span)
-            mainMapView.region = region
+            //mainMapView.region = region
             
             print("latitude: \(lati!)\nlongitude: \(long!)")
         }
     }
     
     @IBAction func range300Btn(_ sender: Any) {
-     mainMapView.removeAnnotation(myPin)
+        mainMapView.removeAnnotations(myPinArray)
+        myPinArray = []
         get(rangenumber: 1)
     }
     
     @IBAction func range500Btn(_ sender: Any) {
-        mainMapView.removeAnnotation(myPin)
+        mainMapView.removeAnnotations(myPinArray)
+        myPinArray = []
         get(rangenumber: 2)
     }
     
     @IBAction func range1000Btn(_ sender: Any) {
-        mainMapView.removeAnnotation(myPin)
+        mainMapView.removeAnnotations(myPinArray)
+        myPinArray = []
         get(rangenumber: 3)
     }
     
     @IBAction func range2000Btn(_ sender: Any) {
-        mainMapView.removeAnnotation(myPin)
+        mainMapView.removeAnnotations(myPinArray)
+        myPinArray = []
         get(rangenumber: 4)
     }
     
     @IBAction func range3000Btn(_ sender: Any) {
-        mainMapView.removeAnnotation(myPin)
+        mainMapView.removeAnnotations(myPinArray)
+        myPinArray = []
         get(rangenumber: 5)
     }
     
@@ -103,7 +108,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         
         URLSession.shared.dataTask(with: component.url!) { (data, response, error) in
             
-           let gNaviResponse = try? JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
+            let gNaviResponse = try? JSONDecoder().decode(GNaviResponse<Restaurant>.self, from: data!
             )
             
             //self.rest = gNaviResponse!.rest
@@ -133,46 +138,57 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
                 self.myPinArray.append(myPin)
                 
             }
-            self.mainMapView.addAnnotations(self.myPinArray)
+            DispatchQueue.main.async {
+                self.mainMapView.addAnnotations(self.myPinArray)
+            }
+            
         }.resume()
         
     }
-
     
-   /* func mainMapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
-        let markerAnnotationView = MKMarkerAnnotationView(annotation: myPin, reuseIdentifier: "myPin")
-        markerAnnotationView.isDraggable = true
-        markerAnnotationView.canShowCallout = true
-        markerAnnotationView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
-        return markerAnnotationView
-    }
- */
-       //addAnnotationした際に呼ばれるデリゲートメソッド
-       func mapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
-           let identifier = "myPin"
-           var annotationView: MKAnnotationView!
     
-           if annotationView == nil {
-               annotationView = MKAnnotationView(annotation: myPin, reuseIdentifier: identifier)
-           }
-    
+    /* func mainMapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
+     let markerAnnotationView = MKMarkerAnnotationView(annotation: myPin, reuseIdentifier: "myPin")
+     markerAnnotationView.isDraggable = true
+     markerAnnotationView.canShowCallout = true
+     markerAnnotationView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
+     return markerAnnotationView
+     }
+     */
+    //addAnnotationした際に呼ばれるデリゲートメソッド
+    func mapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
         
-           // pinに表示する画像を指定
+        if myPin is MKUserLocation { return nil }
+        
+        let identifier = "myPin"
+        var annotationView: MKAnnotationView!
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: myPin, reuseIdentifier: identifier)
+        }
+        
+        
+        // pinに表示する画像を指定
         if NSStringFromClass(type(of: myPin)).components(separatedBy: ".").last! == "CustomAnnotation" {
             annotationView.image = getImageByUrl(url:(myPin as! CustomAnnotation).imageURL)
         }
         
-           
-           annotationView.annotation = myPin
-           annotationView.canShowCallout = true
-
-
+        
+        annotationView.annotation = myPin
+        annotationView.canShowCallout = true
+        
+        
         let rect:CGRect = CGRect(x:0, y:0, width:50, height:50)
-
+        
         annotationView.frame = rect;
         
-           return annotationView
-       }
+        return annotationView
+    }
+    
+    //ピンのタップ時
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+    }
     
     func getImageByUrl(url: String?) -> UIImage{
         if let url = URL(string: url!) {

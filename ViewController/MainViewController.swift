@@ -12,17 +12,17 @@ import CoreLocation
 import Darwin
 
 class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
-    
-    var locationManager: CLLocationManager!
+
     var detailsViewController: DetailViewController!
     
     @IBOutlet weak var mainMapView: MKMapView!
     
+    var locationManager: CLLocationManager!
     var lati: CLLocationDegrees?
     var long: CLLocationDegrees?
+    
     let myPin: MKPointAnnotation = MKPointAnnotation()
     var myPinArray: [MKAnnotation] = []
-    //var rest = [Restaurant]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +36,17 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         
     }
     
+    func setupDetailViewController() {
+        self.detailsViewController = DetailViewController()
+    }
+    
+    //位置情報使用許可
     func setupLocationManager() {
         locationManager = CLLocationManager()
         guard let locationManager = locationManager else { return }
         self.locationManager.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
-    }
-    
-    func setupDetailViewController() {
-        self.detailsViewController = DetailViewController()
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -61,6 +62,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         }
     }
     
+    //現在地中心表示、領域表示
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.first
         lati = location?.coordinate.latitude
@@ -151,15 +153,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         
     }
     
-    
-    /* func mainMapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
-     let markerAnnotationView = MKMarkerAnnotationView(annotation: myPin, reuseIdentifier: "myPin")
-     markerAnnotationView.isDraggable = true
-     markerAnnotationView.canShowCallout = true
-     markerAnnotationView.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure)
-     return markerAnnotationView
-     }
-     */
     //addAnnotationした際に呼ばれるデリゲートメソッド
     func mapView(_ mainMapView: MKMapView, viewFor myPin: MKAnnotation) -> MKAnnotationView? {
         
@@ -191,6 +184,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         return annotationView
     }
     
+    //吹き出し
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         
         for view in views {
@@ -199,11 +193,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    //ピンのタップ時
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-    }
-    
+    //吹き出しのタップ時
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         let detailViewController = (storyboard?.instantiateViewController(identifier: "DetailViewController"))! as DetailViewController
@@ -214,6 +204,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         present(detailViewController, animated: true, completion: nil)
     }
     
+    //URLから画像をとる関数
     func getImageByUrl(url: String?) -> UIImage{
         if let url = URL(string: url!) {
             do {

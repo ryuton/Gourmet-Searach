@@ -26,12 +26,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
+    
+    //セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
             return  50
         case 1:
-            return  250
+            return  275
         case 2:
             return  35
         case 3:
@@ -44,6 +46,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 100
     }
     
+    //セルに表示する内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as UITableViewCell
         
@@ -52,7 +55,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.textLabel?.text = self.rest?.name
         case 1:
             cell.imageView?.image = getImageByUrl(url: self.rest?.image_url.shop_image1)
-            //cell.textLabel?.text = self.rest?.address
+        //cell.textLabel?.text = self.rest?.address
         case 2:
             cell.textLabel?.text = self.rest?.tel
         case 3:
@@ -62,7 +65,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         default:
             break
         }
-        
         return cell
     }
     
@@ -75,17 +77,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print("Error : \(err.localizedDescription)")
             }
         }
-        
         return UIImage(named: "pin")!
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

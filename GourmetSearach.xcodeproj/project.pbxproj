@@ -14,8 +14,8 @@
 		15E40FC4241D145000FD153B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E40FC2241D145000FD153B /* Main.storyboard */; };
 		15E40FC6241D145300FD153B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E40FC5241D145300FD153B /* Assets.xcassets */; };
 		15E40FC9241D145300FD153B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E40FC7241D145300FD153B /* LaunchScreen.storyboard */; };
-		15E40FD4241D145400FD153B /* FenrirGourmetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FD3241D145400FD153B /* FenrirGourmetTests.swift */; };
-		15E40FDF241D145400FD153B /* FenrirGourmetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FDE241D145400FD153B /* FenrirGourmetUITests.swift */; };
+		15E40FD4241D145400FD153B /* GourmetSearachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FD3241D145400FD153B /* GourmetSearachTests.swift */; };
+		15E40FDF241D145400FD153B /* GourmetSearachUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FDE241D145400FD153B /* GourmetSearachUITests.swift */; };
 		15E40FF1241D1D1800FD153B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E40FEF241D1CA600FD153B /* CoreLocation.framework */; };
 		15E40FF3241D2A8E00FD153B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E40FF2241D2A8E00FD153B /* MapKit.framework */; };
 		15E40FF6241D3FAD00FD153B /* GNaviResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E40FF5241D3FAD00FD153B /* GNaviResponse.swift */; };
@@ -44,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		1538C78E242BCC77003B7B72 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		15E40FB9241D145000FD153B /* FenrirGourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenrirGourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15E40FB9241D145000FD153B /* GourmetSearach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetSearach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E40FBC241D145000FD153B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15E40FBE241D145000FD153B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		15E40FC0241D145000FD153B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -52,11 +52,11 @@
 		15E40FC5241D145300FD153B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15E40FC8241D145300FD153B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15E40FCA241D145300FD153B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15E40FCF241D145400FD153B /* FenrirGourmetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenrirGourmetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		15E40FD3241D145400FD153B /* FenrirGourmetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FenrirGourmetTests.swift; sourceTree = "<group>"; };
+		15E40FCF241D145400FD153B /* GourmetSearachTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GourmetSearachTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15E40FD3241D145400FD153B /* GourmetSearachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GourmetSearachTests.swift; sourceTree = "<group>"; };
 		15E40FD5241D145400FD153B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15E40FDA241D145400FD153B /* FenrirGourmetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenrirGourmetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		15E40FDE241D145400FD153B /* FenrirGourmetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FenrirGourmetUITests.swift; sourceTree = "<group>"; };
+		15E40FDA241D145400FD153B /* GourmetSearachUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GourmetSearachUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15E40FDE241D145400FD153B /* GourmetSearachUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GourmetSearachUITests.swift; sourceTree = "<group>"; };
 		15E40FE0241D145400FD153B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E40FEF241D1CA600FD153B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		15E40FF2241D2A8E00FD153B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -100,9 +100,9 @@
 				15E40FF4241D3F5C00FD153B /* Structs */,
 				15E40FF9241D58AC00FD153B /* Storyboard */,
 				15E40FED241D1AD500FD153B /* ViewController */,
-				15E40FBB241D145000FD153B /* FenrirGourmet */,
-				15E40FD2241D145400FD153B /* FenrirGourmetTests */,
-				15E40FDD241D145400FD153B /* FenrirGourmetUITests */,
+				15E40FBB241D145000FD153B /* GourmetSearach */,
+				15E40FD2241D145400FD153B /* GourmetSearachTests */,
+				15E40FDD241D145400FD153B /* GourmetSearachUITests */,
 				15E40FBA241D145000FD153B /* Products */,
 				15E40FEE241D1CA600FD153B /* Frameworks */,
 			);
@@ -111,14 +111,14 @@
 		15E40FBA241D145000FD153B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15E40FB9241D145000FD153B /* FenrirGourmet.app */,
-				15E40FCF241D145400FD153B /* FenrirGourmetTests.xctest */,
-				15E40FDA241D145400FD153B /* FenrirGourmetUITests.xctest */,
+				15E40FB9241D145000FD153B /* GourmetSearach.app */,
+				15E40FCF241D145400FD153B /* GourmetSearachTests.xctest */,
+				15E40FDA241D145400FD153B /* GourmetSearachUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		15E40FBB241D145000FD153B /* FenrirGourmet */ = {
+		15E40FBB241D145000FD153B /* GourmetSearach */ = {
 			isa = PBXGroup;
 			children = (
 				15E40FBC241D145000FD153B /* AppDelegate.swift */,
@@ -127,25 +127,25 @@
 				15E40FC7241D145300FD153B /* LaunchScreen.storyboard */,
 				15E40FCA241D145300FD153B /* Info.plist */,
 			);
-			path = FenrirGourmet;
+			path = GourmetSearach;
 			sourceTree = "<group>";
 		};
-		15E40FD2241D145400FD153B /* FenrirGourmetTests */ = {
+		15E40FD2241D145400FD153B /* GourmetSearachTests */ = {
 			isa = PBXGroup;
 			children = (
-				15E40FD3241D145400FD153B /* FenrirGourmetTests.swift */,
+				15E40FD3241D145400FD153B /* GourmetSearachTests.swift */,
 				15E40FD5241D145400FD153B /* Info.plist */,
 			);
-			path = FenrirGourmetTests;
+			path = GourmetSearachTests;
 			sourceTree = "<group>";
 		};
-		15E40FDD241D145400FD153B /* FenrirGourmetUITests */ = {
+		15E40FDD241D145400FD153B /* GourmetSearachUITests */ = {
 			isa = PBXGroup;
 			children = (
-				15E40FDE241D145400FD153B /* FenrirGourmetUITests.swift */,
+				15E40FDE241D145400FD153B /* GourmetSearachUITests.swift */,
 				15E40FE0241D145400FD153B /* Info.plist */,
 			);
-			path = FenrirGourmetUITests;
+			path = GourmetSearachUITests;
 			sourceTree = "<group>";
 		};
 		15E40FED241D1AD500FD153B /* ViewController */ = {
@@ -189,9 +189,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		15E40FB8241D145000FD153B /* FenrirGourmet */ = {
+		15E40FB8241D145000FD153B /* GourmetSearach */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15E40FE3241D145400FD153B /* Build configuration list for PBXNativeTarget "FenrirGourmet" */;
+			buildConfigurationList = 15E40FE3241D145400FD153B /* Build configuration list for PBXNativeTarget "GourmetSearach" */;
 			buildPhases = (
 				15E40FB5241D145000FD153B /* Sources */,
 				15E40FB6241D145000FD153B /* Frameworks */,
@@ -201,14 +201,14 @@
 			);
 			dependencies = (
 			);
-			name = FenrirGourmet;
+			name = GourmetSearach;
 			productName = FenrirGourmet;
-			productReference = 15E40FB9241D145000FD153B /* FenrirGourmet.app */;
+			productReference = 15E40FB9241D145000FD153B /* GourmetSearach.app */;
 			productType = "com.apple.product-type.application";
 		};
-		15E40FCE241D145400FD153B /* FenrirGourmetTests */ = {
+		15E40FCE241D145400FD153B /* GourmetSearachTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15E40FE6241D145400FD153B /* Build configuration list for PBXNativeTarget "FenrirGourmetTests" */;
+			buildConfigurationList = 15E40FE6241D145400FD153B /* Build configuration list for PBXNativeTarget "GourmetSearachTests" */;
 			buildPhases = (
 				15E40FCB241D145400FD153B /* Sources */,
 				15E40FCC241D145400FD153B /* Frameworks */,
@@ -219,14 +219,14 @@
 			dependencies = (
 				15E40FD1241D145400FD153B /* PBXTargetDependency */,
 			);
-			name = FenrirGourmetTests;
+			name = GourmetSearachTests;
 			productName = FenrirGourmetTests;
-			productReference = 15E40FCF241D145400FD153B /* FenrirGourmetTests.xctest */;
+			productReference = 15E40FCF241D145400FD153B /* GourmetSearachTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		15E40FD9241D145400FD153B /* FenrirGourmetUITests */ = {
+		15E40FD9241D145400FD153B /* GourmetSearachUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15E40FE9241D145400FD153B /* Build configuration list for PBXNativeTarget "FenrirGourmetUITests" */;
+			buildConfigurationList = 15E40FE9241D145400FD153B /* Build configuration list for PBXNativeTarget "GourmetSearachUITests" */;
 			buildPhases = (
 				15E40FD6241D145400FD153B /* Sources */,
 				15E40FD7241D145400FD153B /* Frameworks */,
@@ -237,9 +237,9 @@
 			dependencies = (
 				15E40FDC241D145400FD153B /* PBXTargetDependency */,
 			);
-			name = FenrirGourmetUITests;
+			name = GourmetSearachUITests;
 			productName = FenrirGourmetUITests;
-			productReference = 15E40FDA241D145400FD153B /* FenrirGourmetUITests.xctest */;
+			productReference = 15E40FDA241D145400FD153B /* GourmetSearachUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -265,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 15E40FB4241D144F00FD153B /* Build configuration list for PBXProject "FenrirGourmet" */;
+			buildConfigurationList = 15E40FB4241D144F00FD153B /* Build configuration list for PBXProject "GourmetSearach" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -278,9 +278,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15E40FB8241D145000FD153B /* FenrirGourmet */,
-				15E40FCE241D145400FD153B /* FenrirGourmetTests */,
-				15E40FD9241D145400FD153B /* FenrirGourmetUITests */,
+				15E40FB8241D145000FD153B /* GourmetSearach */,
+				15E40FCE241D145400FD153B /* GourmetSearachTests */,
+				15E40FD9241D145400FD153B /* GourmetSearachUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -333,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15E40FD4241D145400FD153B /* FenrirGourmetTests.swift in Sources */,
+				15E40FD4241D145400FD153B /* GourmetSearachTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15E40FDF241D145400FD153B /* FenrirGourmetUITests.swift in Sources */,
+				15E40FDF241D145400FD153B /* GourmetSearachUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,12 +350,12 @@
 /* Begin PBXTargetDependency section */
 		15E40FD1241D145400FD153B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 15E40FB8241D145000FD153B /* FenrirGourmet */;
+			target = 15E40FB8241D145000FD153B /* GourmetSearach */;
 			targetProxy = 15E40FD0241D145400FD153B /* PBXContainerItemProxy */;
 		};
 		15E40FDC241D145400FD153B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 15E40FB8241D145000FD153B /* FenrirGourmet */;
+			target = 15E40FB8241D145000FD153B /* GourmetSearach */;
 			targetProxy = 15E40FDB241D145400FD153B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -500,12 +500,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJVCJ2YZ47;
-				INFOPLIST_FILE = FenrirGourmet/Info.plist;
+				INFOPLIST_FILE = GourmetSearach/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ryuton.FenrirGourmet;
+				PRODUCT_BUNDLE_IDENTIFIER = ryuton.GourmetSearach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -518,12 +518,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WJVCJ2YZ47;
-				INFOPLIST_FILE = FenrirGourmet/Info.plist;
+				INFOPLIST_FILE = GourmetSearach/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ryuton.FenrirGourmet;
+				PRODUCT_BUNDLE_IDENTIFIER = ryuton.GourmetSearach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,7 +548,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FenrirGourmet.app/FenrirGourmet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetSearach.app/GourmetSearach";
 			};
 			name = Debug;
 		};
@@ -570,7 +570,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FenrirGourmet.app/FenrirGourmet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetSearach.app/GourmetSearach";
 			};
 			name = Release;
 		};
@@ -617,7 +617,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15E40FB4241D144F00FD153B /* Build configuration list for PBXProject "FenrirGourmet" */ = {
+		15E40FB4241D144F00FD153B /* Build configuration list for PBXProject "GourmetSearach" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15E40FE1241D145400FD153B /* Debug */,
@@ -626,7 +626,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15E40FE3241D145400FD153B /* Build configuration list for PBXNativeTarget "FenrirGourmet" */ = {
+		15E40FE3241D145400FD153B /* Build configuration list for PBXNativeTarget "GourmetSearach" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15E40FE4241D145400FD153B /* Debug */,
@@ -635,7 +635,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15E40FE6241D145400FD153B /* Build configuration list for PBXNativeTarget "FenrirGourmetTests" */ = {
+		15E40FE6241D145400FD153B /* Build configuration list for PBXNativeTarget "GourmetSearachTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15E40FE7241D145400FD153B /* Debug */,
@@ -644,7 +644,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15E40FE9241D145400FD153B /* Build configuration list for PBXNativeTarget "FenrirGourmetUITests" */ = {
+		15E40FE9241D145400FD153B /* Build configuration list for PBXNativeTarget "GourmetSearachUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15E40FEA241D145400FD153B /* Debug */,
